@@ -5,9 +5,12 @@
 package com.zanotti.springreact.services;
 
 import com.zanotti.springreact.dto.SaleDTO;
+import com.zanotti.springreact.dto.SaleSuccessDTO;
+import com.zanotti.springreact.dto.SaleSumDTO;
 import com.zanotti.springreact.entities.Sale;
 import com.zanotti.springreact.repositories.SaleRepository;
 import com.zanotti.springreact.repositories.SellerRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,5 +34,15 @@ public class SaleService {
         sellerRepository.findAll();
         Page<Sale> response = repository.findAll(pageable);
         return response.map(sale -> new SaleDTO(sale));
+    }
+    
+    @Transactional(readOnly = true)
+    public List<SaleSumDTO> amountGroupedBySeller() {
+        return repository.amountGroupedBySeller();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSuccessDTO> successGroupedBySeller() {
+        return repository.successGroupedBySeller();
     }
 }
