@@ -2,8 +2,8 @@ import axios from 'axios';
 import { SaleSuccess } from 'models/sale';
 import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import { round } from 'utils/functions';
 import { BASE_URL } from 'utils/requests';
-import { round } from 'utils/round';
 
 type SeriesData = {
   name: string;
