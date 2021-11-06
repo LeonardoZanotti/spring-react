@@ -21,7 +21,7 @@ function Dashboard() {
             <DonutChart />
           </div>
         </div>
-        <div className="py-3">
+        <div className="pt-3 pb-1">
           <h2 className="text-primary">All sales</h2>
         </div>
         <DataTable />
